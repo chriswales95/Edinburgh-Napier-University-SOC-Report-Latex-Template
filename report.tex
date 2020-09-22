@@ -11,29 +11,18 @@
 % #######################################
 % #### Document settings + packages            ####
 % #######################################
-\documentclass[11pt, a4paper]{report}
+\documentclass[11pt, a4paper,bibliography=totocnumbered ]{report}
+\setcounter{secnumdepth}{3}
 \usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
+\usepackage{blindtext}
 
 % colour our links, remove weird boxes
 \usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
 
 %Stop indentation on new paragraphs
 \usepackage[parfill]{parskip}
-
-% Arial-like font
-\IfFileExists{uarial.sty}
-{
-    \usepackage[english]{babel}
-    \usepackage[T1]{fontenc}
-    \usepackage{uarial}
-    \renewcommand{\familydefault}{\sfdefault}
-}{
-    \GenericError{}{Couldn't find Arial font}{ you may need to install 'nonfree' fonts on your system}{}
-    \usepackage{lmodern}
-    \renewcommand*\familydefault{\sfdefault}
-}
 
 %Napier logo top right
 \usepackage{watermark}
@@ -47,11 +36,6 @@
 %tone down the line spacing after section titles
 \usepackage{titlesec}
 
-%Cool maths printing
-\usepackage{amsmath}
-
-%PseudoCode
-\usepackage{algorithm2e}
 
 \titlespacing{\subsection}{0pt}{\parskip}{-3pt}
 \titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
@@ -82,22 +66,38 @@
 	stringstyle=\color[rgb]{0.627,0.126,0.941}
 }
 
+% Reference settings
+\usepackage[british]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,backend=biber,autocite=inline]{biblatex}
+\addbibresource{references.bib}
+
+% Title page
 \thiswatermark{\centering \put(336.5,-38.0){\includegraphics[scale=0.8]{napier_logo}} }
 \title{\mytitle}
 \author{\myauthor\hspace{1em}\\\contact\\Edinburgh Napier University\hspace{0.5em}-\hspace{0.5em}\module -  (\moduleCode)}
 \hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
 \date{} %omit date
-\sloppy
 
 % #######################################
 % ########### Main Document ###########
 % #######################################
+
 \begin{document}
 \maketitle      
-
+\tableofcontents
+\newpage
 \section{Introduction}    
+% fill in
+
 \section{Conclusion}	
-\bibliographystyle{ieeetr}
-\bibliography{references}
-		
+% fill in
+
+% References
+\newpage
+\section{Bibliography}
+
+\printbibliography[heading=none]
+
+
 \end{document}

@@ -17,7 +17,14 @@
 \usepackage{graphicx}
 \graphicspath{{./images/}}
 \usepackage{blindtext}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
 
+\pagestyle{fancy}
+\fancyhf{}
+
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
 % colour our links, remove weird boxes
 \usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
 
@@ -36,35 +43,8 @@
 %tone down the line spacing after section titles
 \usepackage{titlesec}
 
-
-\titlespacing{\subsection}{0pt}{\parskip}{-3pt}
-\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
-\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
-\newcommand{\figuremacro}[5]{
-    \begin{figure}[#1]
-        \centering
-        \includegraphics[width=#5\columnwidth]{#2}
-        \caption[#3]{\textbf{#3}#4}
-        \label{fig:#2}
-    \end{figure}
-}
-
-\renewcommand{\thesection}{\arabic{section}}  % Removes leading 0 from section number
-
-\lstset{
-	escapeinside={/*@}{@*/},
-	basicstyle=\fontsize{8.5}{12}\selectfont,
-	numbers=left,numbersep=2pt,xleftmargin=2pt,frame=tb,
-    	columns=fullflexible,showstringspaces=false,tabsize=4,
-    	keepspaces=true,showtabs=false,showspaces=false,
-    	backgroundcolor=\color{white}, morekeywords={inline,public,
-    	class,private,protected,struct},captionpos=t,lineskip=-0.4em,
-	aboveskip=10pt, extendedchars=true, breaklines=true,
-	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-	keywordstyle=\color[rgb]{0,0,1},
-	commentstyle=\color[rgb]{0.133,0.545,0.133},
-	stringstyle=\color[rgb]{0.627,0.126,0.941}
-}
+% Removes leading 0 from section number
+\renewcommand{\thesection}{\arabic{section}} 
 
 % Reference settings
 \usepackage[british]{babel}
@@ -75,7 +55,8 @@
 % Title page
 \thiswatermark{\centering \put(336.5,-38.0){\includegraphics[scale=0.8]{napier_logo}} }
 \title{\mytitle}
-\author{\myauthor\hspace{1em}\\\contact\\Edinburgh Napier University\hspace{0.5em}-\hspace{0.5em}\module -  (\moduleCode)}
+
+\author{\myauthor\hspace{1em}\\\contact\\Edinburgh Napier University\hspace{0.5em}-\hspace{0.5em}\module\ (\moduleCode)}
 \hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
 \date{} %omit date
 
